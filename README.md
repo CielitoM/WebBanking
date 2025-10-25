@@ -223,6 +223,19 @@ La documentación incluye:
 - Pagar tarjetas de terceros
 - Control de límites y deudas
 
+## Capturas de pantalla
+<img width="1919" height="1022" alt="Captura de pantalla 2025-10-24 162217" src="https://github.com/user-attachments/assets/1d0ea27d-45d1-494c-a5df-033d306d58d5" />
+
+<img width="1310" height="917" alt="Captura de pantalla 2025-10-24 162229" src="https://github.com/user-attachments/assets/144f796b-2455-4081-9a03-639e704964f8" />
+
+<img width="1307" height="919" alt="Captura de pantalla 2025-10-24 162246" src="https://github.com/user-attachments/assets/31f20cff-a56e-444c-937e-2cf3f9e5d792" />
+
+<img width="1309" height="916" alt="Captura de pantalla 2025-10-24 162315" src="https://github.com/user-attachments/assets/ecec62f4-e9b9-4225-be6f-fff07496c3e9" />
+
+<img width="1310" height="916" alt="Captura de pantalla 2025-10-24 162337" src="https://github.com/user-attachments/assets/11d6b6b9-85eb-4bdc-9217-42331c399510" />
+
+<img width="1309" height="915" alt="Captura de pantalla 2025-10-24 162418" src="https://github.com/user-attachments/assets/f847586e-9003-4635-9091-607f77682011" />
+
 ## Contribuciones
 
 Este es un proyecto académico, pero las contribuciones son bienvenidas:
