@@ -163,6 +163,30 @@ El sistema viene con datos predefinidos para pruebas. Puedes usar cualquiera de 
 - **Login:** Sistema de autenticación
 - **VentanaPrincipal:** Ventana principal con navegación por pestañas
 
+## Documentación Javadoc
+
+El proyecto incluye documentación completa en formato Javadoc para todas las clases y métodos.
+
+### Generar Documentación:
+
+```bash
+# Crear directorio para documentación
+mkdir -p dist/javadoc
+
+# Generar documentación Javadoc
+javadoc -d dist/javadoc -sourcepath src -subpackages clasesSWB:guiwebbanking:Contenidos:Interfaces -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
+```
+
+### Ver Documentación:
+Una vez generada, puedes abrir el archivo `dist/javadoc/index.html` en tu navegador para navegar por toda la documentación de la API.
+
+La documentación incluye:
+- **Descripción detallada** de todas las clases
+- **Parámetros y valores de retorno** de todos los métodos
+- **Información de autores** y versiones
+- **Relaciones entre clases** (herencia, composición)
+- **Índice navegable** por paquetes y clases
+
 ## Solución de Problemas
 
 ### Problema: "ant no se reconoce como comando"
