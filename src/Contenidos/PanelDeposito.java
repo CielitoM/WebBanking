@@ -1,0 +1,329 @@
+package Contenidos;
+
+import Interfaces.Interface_Mensajes;
+import Interfaces.Interface_Panel;
+import Interfaces.Interface_reiniciojTexts;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+
+import clasesSWB.Cuenta;
+import clasesSWB.PersistenceManager;
+
+import javax.swing.JOptionPane;
+
+/**
+ * Panel que representa la interfaz gráfica para realizar depósitos.
+ * Implementa las interfaces Interface_Panel, Interface_Mensajes y Interface_reiniciojTexts.
+ * Contiene componentes para ingresar la cuenta y el monto del depósito.
+ * 
+ * @author MAN-U
+ */
+public class PanelDeposito extends javax.swing.JPanel implements Interface_Panel, Interface_Mensajes, Interface_reiniciojTexts {
+    private PersistenceManager persistenceManager;
+
+    /**
+     * Constructor de la clase PanelDeposito.
+     * 
+     * @param persistenceManager Instancia de PersistenceManager para la interacción con la capa de persistencia.
+     */
+    public PanelDeposito(PersistenceManager persistenceManager) {
+        initComponents();
+        changeComponentsProperties();
+        this.persistenceManager = persistenceManager;
+    }//cierre del constructor
+
+    /**
+     * Método que cambia el color y la transparencia del jPanel. 
+     */
+    @Override
+    public final void changeComponentsProperties(){
+        this.setBackground(new Color(0, 0, 0, 0));
+    }//cierre del metodo
+    
+    /**
+     * Llama al método desplegarX para desplegar de manera horizontal cada uno de los 
+     * componentes contenidos en el jPanel
+     */
+    @Override
+    public void desplegarComponentes(){
+        desplegarX(jLabelTituloDeposito, 290,1);
+        desplegarX(jPanelDeposito, 290,1);
+        desplegarX(jTextCuenta, 290,1);
+        desplegarX(jTextMonto, 290,1);
+    }//cierre del metodo
+    
+    /**
+     * Llama al método plegarX para plegar de manera horizontal cada uno de los 
+     * componentes contenidos en el jPanel
+     */
+    @Override
+    public void plegarComponentes(){
+        plegarX(jLabelTituloDeposito, 290,1);
+        plegarX(jPanelDeposito, 290,1);
+        plegarX(jTextCuenta, 290,1);
+        desplegarX(jTextMonto, 290,1);
+    }//cierre del metodo
+    
+    /**
+     * Método que cambia la dimensión de un Component simulando su despliegue en pantalla
+     * @param jcomponent      Component a ser desplegado
+     * @param totalDesplegarX Parámetro tipo int que determina cuanto se sumará a la anchura
+     * actual del JPanel
+     * @param time            Milisegundos para simular los intervalos de la animación
+     */
+    @Override
+    public void desplegarX(Component jcomponent, int totalDesplegarX, int time){
+        Thread hiloDesplegar = new Thread() { //declara un nuevo hilo
+            @Override
+            public void run(){
+                int anchuraActual = jcomponent.getWidth();
+                //ciclo en donde se redimensiona el widget
+                for(int desplegarX = anchuraActual; desplegarX <= anchuraActual+totalDesplegarX; desplegarX++){
+                    try {
+                        Thread.sleep(time);
+                        jcomponent.setSize(new Dimension(desplegarX, jcomponent.getHeight())); //redimensiona el JPanel
+                    } catch (InterruptedException ex) {
+                        System.err.print("No se pudo desplegar el Component");
+                    }
+                }
+            }
+        }; hiloDesplegar.start();
+    }//cierre del metodo
+    
+    
+    /**
+     * Método que cambia la dimensión de un Component simulando su plegado
+     * @param jcomponent   Component a ser plegado
+     * @param totalPlegarX Parámetro tipo int que determina cuanto se restará a la anchura
+     * actual del JPanel
+     * @param time   Milisegundos para simular los intervalos de la animación
+     */
+    @Override
+    public void plegarX(Component jcomponent, int totalPlegarX, int time){
+        Thread hiloPlegar = new Thread() { //declara un nuevo hilo
+            @Override
+            public void run(){ 
+                int anchuraActual = jcomponent.getWidth();
+                //ciclo en donde se disminuye la dimensión del JPanel de uno en uno
+                for(int plegarX = anchuraActual; plegarX >= anchuraActual-totalPlegarX; plegarX--){ 
+                    //captura la excepción InterruptedException generada por .sleep()
+                    try {
+                        Thread.sleep(time);
+                        jcomponent.setSize(new Dimension(plegarX, jcomponent.getHeight())); //redimensiona el JPanel
+                    } catch (InterruptedException ex) {
+                        System.err.print("No se pudo plegar el Component");
+                    }
+                }
+            }
+        }; hiloPlegar.start(); //comienza el hilo
+    }//cierre del metodo
+    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanelDeposito = new javax.swing.JPanel();
+        jLabelMonto = new javax.swing.JLabel();
+        jLabelCuenta = new javax.swing.JLabel();
+        jLabelTituloDeposito = new javax.swing.JLabel();
+        jButtonDeposito = new javax.swing.JButton();
+        jTextMonto = new javax.swing.JTextField();
+        jTextCuenta = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(153, 153, 255));
+
+        jPanelDeposito.setBackground(new java.awt.Color(68, 114, 196));
+
+        jLabelMonto.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelMonto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMonto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelMonto.setText("Monto a Depositar");
+
+        jLabelCuenta.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCuenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelCuenta.setText("Cuenta a Depositar");
+
+        jLabelTituloDeposito.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabelTituloDeposito.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTituloDeposito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTituloDeposito.setText("DEPOSITO");
+        jLabelTituloDeposito.setMaximumSize(new java.awt.Dimension(107, 14));
+        jLabelTituloDeposito.setPreferredSize(new java.awt.Dimension(107, 14));
+
+        jButtonDeposito.setBackground(new java.awt.Color(0, 51, 102));
+        jButtonDeposito.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButtonDeposito.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDeposito.setText("Realizar Deposito");
+        jButtonDeposito.setMaximumSize(new java.awt.Dimension(1366, 738));
+        jButtonDeposito.setMinimumSize(new java.awt.Dimension(197, 48));
+        jButtonDeposito.setPreferredSize(new java.awt.Dimension(755, 32));
+        jButtonDeposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDepositoActionPerformed(evt);
+            }
+        });
+
+        jTextMonto.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jTextMonto.setForeground(new java.awt.Color(102, 102, 102));
+
+        jTextCuenta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jTextCuenta.setForeground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanelDepositoLayout = new javax.swing.GroupLayout(jPanelDeposito);
+        jPanelDeposito.setLayout(jPanelDepositoLayout);
+        jPanelDepositoLayout.setHorizontalGroup(
+            jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDepositoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTituloDeposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDepositoLayout.createSequentialGroup()
+                        .addGroup(jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDepositoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(179, 179, 179))
+        );
+        jPanelDepositoLayout.setVerticalGroup(
+            jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDepositoLayout.createSequentialGroup()
+                .addComponent(jLabelTituloDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jButtonDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(411, Short.MAX_VALUE)
+                .addComponent(jPanelDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(397, 397, 397))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(jPanelDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(232, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDepositoActionPerformed
+        Thread hilo = new Thread(){
+            @Override
+            public void run(){
+                // Obtener la cuenta del cliente
+                String cuentaDeposito = jTextCuenta.getText();
+                Cuenta cuenta = persistenceManager.getCuenta(cuentaDeposito);
+
+                
+                    // Validacion de monto
+                    try {
+                        double montoDeposito = Double.parseDouble(jTextMonto.getText());
+                        if (montoDeposito <= 0){
+                            mostrarMensajeError("El monto debe ser mayor a cero");
+                        }else{
+                            // Verificar que la cuenta  exista
+                            if (!persistenceManager.VerificarCuenta(cuentaDeposito)) {
+                                throw new IllegalArgumentException ("La Cuenta Destino no existe");
+                            }else{
+                                if(mostrarMensajeConfirmacion("Está seguro de realizar el Depósito?") == 0){
+                                    //Guardar elDeposito
+                                    persistenceManager.guardarDeposito(cuenta, montoDeposito); 
+                                    persistenceManager.imprimirDeposito();
+                                    mostrarMensajeFinalizacion("El Deposito fue Exitoso");   
+                                    reiniciojTexts();
+                                }
+                            }
+                        }
+                    } catch (NumberFormatException e) {
+                        mostrarMensajeError("Ingrese un monto válido.");
+                    } catch (IllegalArgumentException e){
+                        mostrarMensajeError("La Cuenta a Depositar no existe");
+                    }
+            }
+        }; hilo.start();
+    }//GEN-LAST:event_jButtonDepositoActionPerformed
+
+    /**
+     * 
+     */
+    @Override
+    public void reiniciojTexts(){
+        jTextCuenta.setText("");
+        jTextMonto.setText("");
+        jTextCuenta.requestFocus();
+    }
+    
+    /**
+     * Metodo que muestra un mensaje de error
+     * @param mensaje Parámetro tipo String que contiene el mensaje de error a mostrar
+     */
+    @Override
+    public void mostrarMensajeError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Error en el Deposito", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    /**
+     * Muestra un mensaje de confirmación.
+     *
+     * @param mensaje Mensaje a ser mostrado en el cuadro de diálogo.
+     * @return Un valor entero que indica la opción seleccionada por el usuario:
+     *         - `JOptionPane.YES_OPTION` si el usuario hace clic en "Sí".
+     *         - `JOptionPane.NO_OPTION` si el usuario hace clic en "No".
+     *         - `JOptionPane.CANCEL_OPTION` si el usuario cierra el cuadro de diálogo.
+     *         - `JOptionPane.CLOSED_OPTION` si ocurre un cierre inesperado.
+     * @see JOptionPane#showConfirmDialog(java.awt.Component, Object, String, int)
+     */
+    @Override
+    public int mostrarMensajeConfirmacion(String mensaje) {
+        return JOptionPane.showConfirmDialog(this, mensaje, "Confirmar Deposito", WIDTH);
+    }
+
+    /**
+     * Muestra un mensaje de finalización en una ventana emergente.
+     *
+     * @param mensaje Mensaje que se mostrará en la ventana emergente.
+     */
+    @Override
+    public void mostrarMensajeFinalizacion(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonDeposito;
+    private javax.swing.JLabel jLabelCuenta;
+    private javax.swing.JLabel jLabelMonto;
+    private javax.swing.JLabel jLabelTituloDeposito;
+    private javax.swing.JPanel jPanelDeposito;
+    private javax.swing.JTextField jTextCuenta;
+    private javax.swing.JTextField jTextMonto;
+    // End of variables declaration//GEN-END:variables
+}
