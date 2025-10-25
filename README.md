@@ -1,22 +1,22 @@
-# 🏦 Sistema Web Banking
+# Sistema Web Banking
 
 Un sistema de banca en línea desarrollado en Java con interfaz gráfica Swing que simula las funcionalidades básicas de una aplicación bancaria moderna.
 
-## 📋 Descripción
+## Descripción
 
 Este proyecto es una aplicación de escritorio que permite a los usuarios gestionar sus cuentas bancarias, realizar transacciones, pagar servicios y administrar tarjetas de crédito de manera digital. Desarrollado como proyecto académico para demostrar conceptos avanzados de Programación Orientada a Objetos.
 
-## ✨ Características Principales
+## Características Principales
 
-- 🔐 **Sistema de autenticación seguro** con control de intentos
-- 💰 **Gestión de cuentas** (Corriente y Caja de Ahorro)
-- 🔄 **Transferencias** entre cuentas
-- 💳 **Manejo de tarjetas de crédito**
-- 🧾 **Pago de servicios** públicos (ESSAP, ANDE, COPACO)
-- 📊 **Historial de transacciones**
-- 🎨 **Interfaz gráfica moderna** y fácil de usar
+- **Sistema de autenticación seguro** con control de intentos
+- **Gestión de cuentas** (Corriente y Caja de Ahorro)
+- **Transferencias** entre cuentas
+- **Manejo de tarjetas de crédito**
+- **Pago de servicios** públicos (ESSAP, ANDE, COPACO)
+- **Historial de transacciones**
+- **Interfaz gráfica moderna** y fácil de usar
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Lenguaje:** Java 1.8+ (compatible hasta Java 18)
 - **GUI:** Java Swing con NetBeans Form Designer
@@ -24,7 +24,7 @@ Este proyecto es una aplicación de escritorio que permite a los usuarios gestio
 - **Build Tool:** Apache Ant
 - **IDE:** NetBeans (recomendado)
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 📁 GUIWebBanking/
@@ -56,13 +56,13 @@ Este proyecto es una aplicación de escritorio que permite a los usuarios gestio
 └── README.md                  # Este archivo
 ```
 
-## 🚀 Instalación y Ejecución
+## Instalación y Ejecución
 
 ### Prerrequisitos
 
-- ☕ **Java JDK 8 o superior** instalado
-- 🐜 **Apache Ant** (opcional, para build automático)
-- 🖥️ **NetBeans IDE** (recomendado)
+- **Java JDK 8 o superior** instalado
+- **Apache Ant** (opcional, para build automático)
+- **NetBeans IDE** (recomendado)
 
 ### Opción 1: Ejecutar desde NetBeans (Recomendado)
 
@@ -70,7 +70,7 @@ Este proyecto es una aplicación de escritorio que permite a los usuarios gestio
 2. Ve a `File → Open Project`
 3. Navega a la carpeta del proyecto y selecciónala
 4. Haz clic en `Open Project`
-5. Presiona `F6` o haz clic en el botón ▶️ `Run Project`
+5. Presiona `F6` o haz clic en el botón `Run Project`
 
 ### Opción 2: Compilar y ejecutar manualmente
 
@@ -104,7 +104,7 @@ ant compile
 ant run
 ```
 
-## 👤 Credenciales de Prueba
+## Credenciales de Prueba
 
 El sistema viene con datos predefinidos para pruebas. Puedes usar cualquiera de estas cuentas:
 
@@ -120,7 +120,7 @@ El sistema viene con datos predefinidos para pruebas. Puedes usar cualquiera de 
 | `222`            | `6666` | Cuenta Corriente | 9,000 |
 | `333`            | `8888` | Caja de Ahorro   | 4,000 |
 
-## 🎮 Cómo Usar el Sistema
+## Cómo Usar el Sistema
 
 1. **Iniciar Sesión:**
    - Ejecuta la aplicación
@@ -142,14 +142,14 @@ El sistema viene con datos predefinidos para pruebas. Puedes usar cualquiera de 
    - Confirma con tu PIN de transacción
    - ¡Listo! La operación se procesará inmediatamente
 
-## 🔒 Características de Seguridad
+## Características de Seguridad
 
 - **Autenticación de doble factor:** PIN de cuenta + PIN de transacción
 - **Control de intentos:** Máximo 3 intentos fallidos antes del bloqueo
 - **Validación de fondos:** Verificación automática de saldo suficiente
 - **Mensajes de error informativos** para guiar al usuario
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Patrones de Diseño Implementados:
 - **MVC (Modelo-Vista-Controlador):** Separación clara entre lógica y presentación
@@ -163,7 +163,7 @@ El sistema viene con datos predefinidos para pruebas. Puedes usar cualquiera de 
 - **Login:** Sistema de autenticación
 - **VentanaPrincipal:** Ventana principal con navegación por pestañas
 
-## 🐛 Solución de Problemas
+## Solución de Problemas
 
 ### Problema: "ant no se reconoce como comando"
 **Solución:** Instala Apache Ant y agrégalo al PATH del sistema.
@@ -177,29 +177,29 @@ El sistema viene con datos predefinidos para pruebas. Puedes usar cualquiera de 
 ### Problema: Cuenta bloqueada
 **Solución:** Reinicia la aplicación (los datos se resetean al ser un sistema en memoria).
 
-## 📚 Funcionalidades Detalladas
+## Funcionalidades Detalladas
 
-### 💰 Gestión de Depósitos
+### Gestión de Depósitos
 - Agregar dinero a tu cuenta
 - Validación de montos positivos
 - Actualización inmediata del saldo
 
-### 🔄 Sistema de Transferencias
+### Sistema de Transferencias
 - Transferir entre cuentas del sistema
 - Agregar comentarios opcionales
 - Validación de cuentas de destino
 
-### 🧾 Pago de Servicios
+### Pago de Servicios
 - **ESSAP** (Empresa de Servicios Sanitarios del Paraguay)
 - **ANDE** (Administración Nacional de Electricidad)
 - **COPACO** (Compañía Paraguaya de Comunicaciones)
 
-### 💳 Gestión de Tarjetas
+### Gestión de Tarjetas
 - Pagar tarjetas propias
 - Pagar tarjetas de terceros
 - Control de límites y deudas
 
-## 🤝 Contribuciones
+## Contribuciones
 
 Este es un proyecto académico, pero las contribuciones son bienvenidas:
 
@@ -209,17 +209,7 @@ Este es un proyecto académico, pero las contribuciones son bienvenidas:
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
-## 📄 Licencia
-
-Este proyecto es de uso académico y educativo. Desarrollado como parte del curso de Lenguajes de Programación 2 (LP2).
-
-## 👥 Autores
-
-- **MAN-U** - Desarrollo principal
-- **Maria Melgarejo** - PersistenceManager y gestión de datos
-- **Iván Figueredo** - Módulo de servicios
-
-## 📞 Soporte
+## Soporte
 
 Si tienes problemas con la ejecución del proyecto:
 
@@ -227,11 +217,3 @@ Si tienes problemas con la ejecución del proyecto:
 2. Asegúrate de que la versión de Java sea compatible
 3. Revisa que todas las rutas estén correctas
 4. Consulta la sección de solución de problemas
-
----
-
-⭐ **¡No olvides dar una estrella si este proyecto te fue útil!** ⭐
-
----
-
-**Última actualización:** Octubre 2025
